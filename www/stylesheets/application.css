@@ -1,6 +1,8 @@
 * {
   -webkit-user-select: none;  /* Disable selection/copy of elements when tapping for a long time */
   -webkit-touch-callout: none; /* Disable touch callouts */
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 input, textarea, [contenteditable] * {
