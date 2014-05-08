@@ -13,3 +13,8 @@ This app is meant to showcase the Steroids multi-page app (MPA) architecture wit
 ## Data License
 
 Recipe text in `www/data/recipe.json` from [Wikibooks Cookbook](http://en.wikibooks.org/wiki/Cookbook:Recipes).
+
+
+## Run dev
+
+> steroids connect --watch
