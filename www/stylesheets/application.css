@@ -3,10 +3,17 @@
   -webkit-touch-callout: none; /* Disable touch callouts */
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+
+  text-rendering: optimizeLegibility; /* nice fonts, not much text */
 }
 
 input, textarea, [contenteditable] * {
   -webkit-user-select: auto;  /* Allow selection for input elements and those with contenteditable attribute */
+}
+
+button {
+    -webkit-appearance: carret;
+    -webkit-appearance: none; /* no button styling */
 }
 
 .content-padded {
