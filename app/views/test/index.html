@@ -1,0 +1,16 @@
+<div ng-app="testApp">
+
+  <div ng-controller="IndexCtrl">
+    <div class="topcoat-list__container">
+
+      <ul class="topcoat-list">
+        <li class="topcoat-list__item" hm-tap="open(test.test_id)" ng-repeat="test in tests">
+          Test: {{ test.name }}
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
