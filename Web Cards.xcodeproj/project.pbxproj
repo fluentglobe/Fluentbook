@@ -14,6 +14,7 @@
 		3E9C3E2319572C9100A7666C /* Web_CardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C3E2219572C9100A7666C /* Web_CardsTests.swift */; };
 		3E9C3E2E19572CC300A7666C /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C3E2C19572CC300A7666C /* CardsViewController.swift */; };
 		3E9C3E2F19572CC300A7666C /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C3E2D19572CC300A7666C /* CardViewCell.swift */; };
+		3E9C3E601957348400A7666C /* CardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C3E5F1957348400A7666C /* CardsDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		3E9C3E2C19572CC300A7666C /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		3E9C3E2D19572CC300A7666C /* CardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
 		3E9C3E5619572E8E00A7666C /* CardKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CardKit.xcodeproj; path = ../../../CardKit/CardKit.xcodeproj; sourceTree = "<group>"; };
+		3E9C3E5F1957348400A7666C /* CardsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				3E9C3E1119572C9000A7666C /* ViewController.swift */,
 				3E9C3E2C19572CC300A7666C /* CardsViewController.swift */,
 				3E9C3E2D19572CC300A7666C /* CardViewCell.swift */,
+				3E9C3E5F1957348400A7666C /* CardsDataSource.swift */,
 				3E9C3E1319572C9000A7666C /* Main.storyboard */,
 				3E9C3E1619572C9000A7666C /* Images.xcassets */,
 				3E9C3E0D19572C9000A7666C /* Supporting Files */,
@@ -265,6 +268,7 @@
 				3E9C3E1219572C9000A7666C /* ViewController.swift in Sources */,
 				3E9C3E1019572C9000A7666C /* AppDelegate.swift in Sources */,
 				3E9C3E2F19572CC300A7666C /* CardViewCell.swift in Sources */,
+				3E9C3E601957348400A7666C /* CardsDataSource.swift in Sources */,
 				3E9C3E2E19572CC300A7666C /* CardsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
