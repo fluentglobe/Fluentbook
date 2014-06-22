@@ -12,6 +12,8 @@
 		3E9C3E1519572C9000A7666C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9C3E1319572C9000A7666C /* Main.storyboard */; };
 		3E9C3E1719572C9000A7666C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E9C3E1619572C9000A7666C /* Images.xcassets */; };
 		3E9C3E2319572C9100A7666C /* Web_CardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C3E2219572C9100A7666C /* Web_CardsTests.swift */; };
+		3E9C3E2E19572CC300A7666C /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C3E2C19572CC300A7666C /* CardsViewController.swift */; };
+		3E9C3E2F19572CC300A7666C /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C3E2D19572CC300A7666C /* CardViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -21,6 +23,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3E9C3E0919572C9000A7666C;
 			remoteInfo = "Web Cards";
+		};
+		3E9C3E5B19572E8F00A7666C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E9C3E5619572E8E00A7666C /* CardKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3E9C3E3A19572E8E00A7666C;
+			remoteInfo = CardKit;
+		};
+		3E9C3E5D19572E8F00A7666C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E9C3E5619572E8E00A7666C /* CardKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3E9C3E4519572E8E00A7666C;
+			remoteInfo = CardKitTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -34,6 +50,9 @@
 		3E9C3E1C19572C9000A7666C /* Web CardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Web CardsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9C3E2119572C9100A7666C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E9C3E2219572C9100A7666C /* Web_CardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web_CardsTests.swift; sourceTree = "<group>"; };
+		3E9C3E2C19572CC300A7666C /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		3E9C3E2D19572CC300A7666C /* CardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
+		3E9C3E5619572E8E00A7666C /* CardKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CardKit.xcodeproj; path = ../../../CardKit/CardKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +94,11 @@
 		3E9C3E0C19572C9000A7666C /* Web Cards */ = {
 			isa = PBXGroup;
 			children = (
+				3E9C3E5619572E8E00A7666C /* CardKit.xcodeproj */,
 				3E9C3E0F19572C9000A7666C /* AppDelegate.swift */,
 				3E9C3E1119572C9000A7666C /* ViewController.swift */,
+				3E9C3E2C19572CC300A7666C /* CardsViewController.swift */,
+				3E9C3E2D19572CC300A7666C /* CardViewCell.swift */,
 				3E9C3E1319572C9000A7666C /* Main.storyboard */,
 				3E9C3E1619572C9000A7666C /* Images.xcassets */,
 				3E9C3E0D19572C9000A7666C /* Supporting Files */,
@@ -107,6 +129,15 @@
 				3E9C3E2119572C9100A7666C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E9C3E5719572E8E00A7666C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E9C3E5C19572E8F00A7666C /* CardKit.framework */,
+				3E9C3E5E19572E8F00A7666C /* CardKitTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +207,12 @@
 			mainGroup = 3E9C3E0119572C9000A7666C;
 			productRefGroup = 3E9C3E0B19572C9000A7666C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3E9C3E5719572E8E00A7666C /* Products */;
+					ProjectRef = 3E9C3E5619572E8E00A7666C /* CardKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3E9C3E0919572C9000A7666C /* Web Cards */,
@@ -183,6 +220,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3E9C3E5C19572E8F00A7666C /* CardKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CardKit.framework;
+			remoteRef = 3E9C3E5B19572E8F00A7666C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E9C3E5E19572E8F00A7666C /* CardKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CardKitTests.xctest;
+			remoteRef = 3E9C3E5D19572E8F00A7666C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3E9C3E0819572C9000A7666C /* Resources */ = {
@@ -210,6 +264,8 @@
 			files = (
 				3E9C3E1219572C9000A7666C /* ViewController.swift in Sources */,
 				3E9C3E1019572C9000A7666C /* AppDelegate.swift in Sources */,
+				3E9C3E2F19572CC300A7666C /* CardViewCell.swift in Sources */,
+				3E9C3E2E19572CC300A7666C /* CardsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
