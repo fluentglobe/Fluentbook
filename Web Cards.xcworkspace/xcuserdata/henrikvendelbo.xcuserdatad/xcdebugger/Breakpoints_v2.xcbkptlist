@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CardKit/CardKit/CardStackLayout.swift"
+            timestampString = "425401740.873374"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "prepareLayout()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CardKit/CardKit/CardStackLayout.swift"
+            timestampString = "425411274.987873"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "layoutAttributesForItemAtIndexPath(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CardKit/CardKit/CardViewCell.swift"
+            timestampString = "425414226.301031"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "applyLayoutAttributes(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Web_Cards.CardViewCell.applyLayoutAttributes (Web_Cards.CardViewCell)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UICollectionViewLayoutAttributes&gt;) -&gt; ()"
+                  moduleName = "Web Cards"
+                  urlString = "file:///Users/henrikvendelbo/workspace/learning/Web%20Cards/CardKit/CardKit/CardViewCell.swift"
+                  timestampString = "425409893.618367"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "506">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Web_Cards.CardViewCell.applyLayoutAttributes (Web_Cards.CardViewCell)(Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UICollectionViewLayoutAttributes&gt;) -&gt; ()"
+                  moduleName = "Web Cards"
+                  urlString = "file:///Users/henrikvendelbo/workspace/learning/Web%20Cards/CardKit/CardKit/CardViewCell.swift"
+                  timestampString = "425409893.618588"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "644">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
