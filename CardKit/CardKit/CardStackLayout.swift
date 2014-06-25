@@ -80,14 +80,15 @@ class CardStackLayout: UICollectionViewLayout {
     override func layoutAttributesForItemAtIndexPath(path:NSIndexPath)
         -> UICollectionViewLayoutAttributes {
 
-        let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: path)
+        let attributes = CardViewLayoutAttributes(forCellWithIndexPath: path)
+//        if self.exposedItem is Int {
+            attributes.foreground = (self.exposedItem == path.item)
+//        }
         
         // placing from the bottom up having the topmost (last in stack) be visually on top
-        let centerY = CGFloat(Float(self.cellCount) - Float(path.item) - 0.5) * self.reveal
-//        attributes.center = CGPointMake(self.center.x, centerY)
-//        attributes.size = CGSize(width: self.exposedSize.width, height: self.reveal)
-            
+
         // card has full height whether overlapped or not
+        let centerY = CGFloat(Float(self.cellCount) - Float(path.item) - 0.5) * self.reveal
         attributes.center = CGPointMake(self.center.x, centerY - self.exposedSize.height/2 + self.reveal/2)
         attributes.size = CGSize(width: self.exposedSize.width, height: self.exposedSize.height)
         attributes.zIndex = path.item // last card top of pile

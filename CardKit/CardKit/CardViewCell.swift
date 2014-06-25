@@ -16,6 +16,7 @@ class CardViewCell: UICollectionViewCell {
     
     @IBOutlet var webView: UIWebView = nil
     @IBOutlet var roundedView : UIView = nil
+    @IBOutlet var snapshotImageView: UIImageView = nil
     @IBOutlet var nameLabel : UILabel = nil
     
     init(frame: CGRect) {
@@ -45,7 +46,7 @@ class CardViewCell: UICollectionViewCell {
         self.backgroundView.layer.shadowColor = UIColor.grayColor().CGColor
         self.backgroundView.layer.shadowOpacity = Float(0.7)
         self.backgroundView.layer.shadowRadius = Float(4.0)
-        self.backgroundView.layer.shadowOffset = CGSizeMake(Float(0.0), Float(10.0))
+        self.backgroundView.layer.shadowOffset = CGSizeMake(Float(0.0), Float(-10.0))
         self.backgroundView.layer.shadowPath = UIBezierPath(rect: self.backgroundView.bounds).CGPath
     }
     
@@ -55,19 +56,39 @@ class CardViewCell: UICollectionViewCell {
         self.opaque = false
         self.backgroundColor = UIColor.clearColor()
         
-        var bgFrame = self.contentView.frame
-        bgFrame.size.width = self.contentView.frame.width
-        bgFrame.size.height = self.contentView.frame.height
-        self.backgroundView.frame = bgFrame
-        
         self.nameLabel.text = self.title
         
         self.webView.layer.cornerRadius = 7.0
         self.webView.clipsToBounds = true
         
         // for debugging
-        self.webView.layer.borderWidth = 1.0
-        self.webView.layer.borderColor = UIColor.blackColor().CGColor
+//        self.webView.layer.borderWidth = 1.0
+//        self.webView.layer.borderColor = UIColor.blackColor().CGColor
+    }
+    
+    override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes!) {
+        
+        super.applyLayoutAttributes(layoutAttributes)
+        
+        let cardAttributes = layoutAttributes as CardViewLayoutAttributes
+        
+        // update the background size to full height
+        var bgFrame = self.backgroundView.frame, bgBounds = self.backgroundView.bounds
+        bgFrame.size.height = layoutAttributes.size.height
+        bgBounds.size.height = layoutAttributes.size.height
+        self.backgroundView.frame = bgFrame
+        self.selectedBackgroundView.frame = bgFrame
+//        self.backgroundView.bounds = bgBounds
+//        self.selectedBackgroundView.bounds = bgBounds
+        
+        //TODO skip if height/width unchanged
+        self.backgroundView.layer.shadowPath = UIBezierPath(rect: self.backgroundView.bounds).CGPath
+        self.selectedBackgroundView.layer.shadowPath = UIBezierPath(rect: self.selectedBackgroundView.bounds).CGPath
+        
+        // showing webview or the snapshot
+        self.webView.hidden = !cardAttributes.foreground
+        self.snapshotImageView.hidden = cardAttributes.foreground
+        //TODO other snapshot bits
     }
     
     /*

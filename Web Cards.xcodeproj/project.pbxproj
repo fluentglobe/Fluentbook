@@ -16,6 +16,8 @@
 		3EC0073D1959D89B004E05A2 /* CardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0073C1959D89B004E05A2 /* CardsDataSource.swift */; };
 		3EC0073F1959DC52004E05A2 /* CardStackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0073E1959DC52004E05A2 /* CardStackLayout.swift */; };
 		3EC00741195A1CBC004E05A2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC00740195A1CBC004E05A2 /* CardView.swift */; };
+		3EDA9EF6195B32F5000C65AF /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDA9EF5195B32F5000C65AF /* Reveal.framework */; };
+		3EDA9EF8195B402B000C65AF /* CardViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA9EF7195B402B000C65AF /* CardViewLayoutAttributes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		3EC0073C1959D89B004E05A2 /* CardsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsDataSource.swift; sourceTree = "<group>"; };
 		3EC0073E1959DC52004E05A2 /* CardStackLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackLayout.swift; sourceTree = "<group>"; };
 		3EC00740195A1CBC004E05A2 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		3EDA9EF5195B32F5000C65AF /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "../../../../../Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<group>"; };
+		3EDA9EF7195B402B000C65AF /* CardViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewLayoutAttributes.swift; sourceTree = "<group>"; };
 		42EF040C81B14A5AA72653EC /* libPods-Web Cards.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Web Cards.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B464DAD354F34306BCBE06BB /* Pods-Web Cards.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Web Cards.xcconfig"; path = "Pods/Pods-Web Cards.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EDA9EF6195B32F5000C65AF /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +74,7 @@
 		3E9C3E0119572C9000A7666C = {
 			isa = PBXGroup;
 			children = (
+				3EDA9EF5195B32F5000C65AF /* Reveal.framework */,
 				3EC0073A1959D7E7004E05A2 /* Cards */,
 				3E9C3E0C19572C9000A7666C /* Web Cards */,
 				3E9C3E1F19572C9100A7666C /* Web CardsTests */,
@@ -131,6 +137,7 @@
 				3EC0073C1959D89B004E05A2 /* CardsDataSource.swift */,
 				3EC0073E1959DC52004E05A2 /* CardStackLayout.swift */,
 				3EC00740195A1CBC004E05A2 /* CardView.swift */,
+				3EDA9EF7195B402B000C65AF /* CardViewLayoutAttributes.swift */,
 			);
 			name = Cards;
 			path = CardKit/CardKit;
@@ -285,6 +292,7 @@
 				3EC0073B1959D7E7004E05A2 /* CardViewCell.swift in Sources */,
 				3EC0073D1959D89B004E05A2 /* CardsDataSource.swift in Sources */,
 				3EC00741195A1CBC004E05A2 /* CardView.swift in Sources */,
+				3EDA9EF8195B402B000C65AF /* CardViewLayoutAttributes.swift in Sources */,
 				3E9C3E2E19572CC300A7666C /* CardsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +415,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/henrikvendelbo/workspace/CardKit/CardKit/build/Debug-iphoneos",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
 				);
 				INFOPLIST_FILE = "Web Cards/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -424,6 +433,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/henrikvendelbo/workspace/CardKit/CardKit/build/Debug-iphoneos",
+					"$(SYSTEM_APPS_DIR)/Reveal.app/Contents/SharedSupport/iOS-Libraries",
 				);
 				INFOPLIST_FILE = "Web Cards/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
