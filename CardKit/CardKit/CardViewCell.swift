@@ -23,10 +23,22 @@ class CardViewCell: UICollectionViewCell {
     }
     var color = UIColor.whiteColor()
     
+    var _progress:Float = 0.0
+    var progress:Float {
+        get { return _progress }
+        set {
+            _progress = newValue
+            if self.taskProgress {
+                self.taskProgress.progress = _progress
+            }
+        }
+    }
+    
     @IBOutlet var webView: UIWebView = nil
     @IBOutlet var roundedView : UIView = nil
     @IBOutlet var snapshotImageView: UIImageView = nil
     @IBOutlet var nameLabel : UILabel = nil
+    @IBOutlet var taskProgress: UIProgressView = nil
     
     init(frame: CGRect) {
         super.init(frame: frame)
