@@ -10,6 +10,7 @@ import UIKit
 
 class CardStackLayout: UICollectionViewLayout {
    
+    var exposedItem:Int? = nil
     var cellCount:Int = 0
     var reveal:CGFloat = 0.0
     var center = CGPoint(x: 160, y: 300)
@@ -54,8 +55,16 @@ class CardStackLayout: UICollectionViewLayout {
     }
     
     override func collectionViewContentSize() -> CGSize {
-        let total = CGFloat(self.cellCount) * self.reveal
-        return CGSize(width: self.exposedSize.width,height: total)
+        // switch exposed to spread
+        if self.exposedItem == nil {
+            let total = CGFloat(self.cellCount) * self.reveal
+            return CGSize(
+                width: self.exposedSize.width + self.layoutMargin.left + self.layoutMargin.right,
+                height: total + self.layoutMargin.top + self.layoutMargin.bottom)
+        } else {
+            return CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+        }
+        
     }
         
     override func layoutAttributesForElementsInRect(rect: CGRect) -> AnyObject[] {
@@ -68,12 +77,23 @@ class CardStackLayout: UICollectionViewLayout {
         return attributes
     }
     
-    override func layoutAttributesForItemAtIndexPath(path:NSIndexPath) -> UICollectionViewLayoutAttributes {
+    override func layoutAttributesForItemAtIndexPath(path:NSIndexPath)
+        -> UICollectionViewLayoutAttributes {
 
         let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: path)
-        let centerY = CGFloat(Float(path.item) + 0.5) * self.reveal
-        attributes.center = CGPointMake(self.center.x, centerY)
-        attributes.size = CGSize(width: self.exposedSize.width, height: self.reveal)
+        
+        // placing from the bottom up having the topmost (last in stack) be visually on top
+        let centerY = CGFloat(Float(self.cellCount) - Float(path.item) - 0.5) * self.reveal
+//        attributes.center = CGPointMake(self.center.x, centerY)
+//        attributes.size = CGSize(width: self.exposedSize.width, height: self.reveal)
+            
+        // card has full height whether overlapped or not
+        attributes.center = CGPointMake(self.center.x, centerY - self.exposedSize.height/2 + self.reveal/2)
+        attributes.size = CGSize(width: self.exposedSize.width, height: self.exposedSize.height)
+        attributes.zIndex = path.item // last card top of pile
+            
+        println("Laying out item \(path.item), (\(attributes.center.x),\(attributes.center.y))")
+            
         return attributes
     }
     

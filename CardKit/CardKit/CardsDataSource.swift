@@ -41,7 +41,7 @@ class CardsDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDel
     @lazy var cards = cardDefs()
     
     func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 15
     }
     
     func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {

@@ -33,8 +33,8 @@ class CardViewCell: UICollectionViewCell {
         
         self.backgroundView.backgroundColor = UIColor.clearColor() //self.color
         self.backgroundView.layer.cornerRadius = 7.0
-        //        self.backgroundView.layer.borderWidth = 1.0
-        //        self.backgroundView.layer.borderColor = UIColor.blackColor().CGColor
+//                self.backgroundView.layer.borderWidth = 1.0
+//                self.backgroundView.layer.borderColor = UIColor.blackColor().CGColor
         
         self.selectedBackgroundView.backgroundColor = UIColor.clearColor() //self.color
         self.selectedBackgroundView.layer.cornerRadius = 7.0
@@ -55,10 +55,19 @@ class CardViewCell: UICollectionViewCell {
         self.opaque = false
         self.backgroundColor = UIColor.clearColor()
         
+        var bgFrame = self.contentView.frame
+        bgFrame.size.width = self.contentView.frame.width
+        bgFrame.size.height = self.contentView.frame.height
+        self.backgroundView.frame = bgFrame
+        
         self.nameLabel.text = self.title
         
         self.webView.layer.cornerRadius = 7.0
         self.webView.clipsToBounds = true
+        
+        // for debugging
+        self.webView.layer.borderWidth = 1.0
+        self.webView.layer.borderColor = UIColor.blackColor().CGColor
     }
     
     /*
