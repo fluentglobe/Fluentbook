@@ -1,0 +1,90 @@
+//
+//  CardViewCell.swift
+//  webcards
+//
+//  Created by Henrik Vendelbo on 21/06/2014.
+//  Copyright (c) 2014 Right Here Inc. All rights reserved.
+//
+
+import UIKit
+import QuartzCore
+
+class CardViewCell: UICollectionViewCell {
+    
+    var title = ""
+    var color = UIColor.whiteColor()
+    
+    @IBOutlet var webView: UIWebView = nil
+    @IBOutlet var roundedView : UIView = nil
+    @IBOutlet var nameLabel : UILabel = nil
+    
+    init(frame: CGRect) {
+        super.init(frame: frame)
+        // Initialization code
+    }
+    
+    init(coder aDecoder:NSCoder!) {
+        super.init(coder: aDecoder)
+        
+        self.backgroundView = UIView(frame: CGRectMake(0,0,100,100))
+        //TODO rect full size constraints
+        self.selectedBackgroundView = UIView(frame: CGRectMake(0,0,100,100))
+        //TODO rect full size constraints
+        
+        self.backgroundView.backgroundColor = UIColor.clearColor() //self.color
+        self.backgroundView.layer.cornerRadius = 7.0
+        //        self.backgroundView.layer.borderWidth = 1.0
+        //        self.backgroundView.layer.borderColor = UIColor.blackColor().CGColor
+        
+        self.selectedBackgroundView.backgroundColor = UIColor.clearColor() //self.color
+        self.selectedBackgroundView.layer.cornerRadius = 7.0
+        //        self.selectedBackgroundView.layer.borderWidth = 1.0
+        //        self.selectedBackgroundView.layer.borderColor = UIColor.blackColor().CGColor
+        
+        self.backgroundView.clipsToBounds = false
+        self.backgroundView.layer.shadowColor = UIColor.grayColor().CGColor
+        self.backgroundView.layer.shadowOpacity = Float(0.7)
+        self.backgroundView.layer.shadowRadius = Float(4.0)
+        self.backgroundView.layer.shadowOffset = CGSizeMake(Float(0.0), Float(10.0))
+        self.backgroundView.layer.shadowPath = UIBezierPath(rect: self.backgroundView.bounds).CGPath
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.opaque = false
+        self.backgroundColor = UIColor.clearColor()
+        
+        self.nameLabel.text = self.title
+        
+        self.webView.layer.cornerRadius = 7.0
+        self.webView.clipsToBounds = true
+    }
+    
+    /*
+    func setImage(image:UIImage) {
+    //        self.imageView.setImage(image)
+    }
+    
+    func setLabel(text: String) {
+    self.nameLabel.text = text
+    }
+    */
+    func setTitle(title: String) {
+        self.title = title
+        if self.nameLabel {
+            self.nameLabel.text = title
+        }
+    }
+    
+    func setColor(color: UIColor) {
+        self.color = color
+        //TODO update backgroundView and selectedBackgroundView
+    }
+    
+    /* TODO
+    func setSelected(selected: Bool) {
+    
+    }
+    */
+}

@@ -8,36 +8,55 @@
         <scene sceneID="DyK-3W-mRU">
             <objects>
                 <collectionViewController storyboardIdentifier="Cards" id="7tH-Og-emC" customClass="CardsViewController" customModule="Web_Cards" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" id="3k5-UU-2if">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" id="3k5-UU-2if" customClass="CardView" customModule="Web_Cards" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="C8f-z6-C4O">
-                            <size key="itemSize" width="50" height="50"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="C8f-z6-C4O" customClass="CardStackLayout" customModule="Web_Cards" customModuleProvider="target">
+                            <size key="itemSize" width="479" height="113"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="Wid-0c-la0" customClass="CardViewCell" customModule="Web_Cards" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="Wid-0c-la0" customClass="CardViewCell" customModule="CardKit">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="479" height="113"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKu-QX-m6a">
+                                            <rect key="frame" x="0.0" y="10" width="479" height="103"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </webView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="1" green="0.2156862745" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="yKu-QX-m6a" secondAttribute="bottom" id="mXa-V0-HfY"/>
+                                    <constraint firstItem="yKu-QX-m6a" firstAttribute="top" secondItem="Wid-0c-la0" secondAttribute="top" constant="10" id="qcu-4K-gdp"/>
+                                    <constraint firstAttribute="trailing" secondItem="yKu-QX-m6a" secondAttribute="trailing" id="toh-U9-EL8"/>
+                                    <constraint firstItem="yKu-QX-m6a" firstAttribute="leading" secondItem="Wid-0c-la0" secondAttribute="leading" id="xtG-zM-eYl"/>
+                                </constraints>
                             </collectionViewCell>
                         </cells>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="bounceFactor">
+                                <real key="value" value="0.20000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
-                            <outlet property="dataSource" destination="7tH-Og-emC" id="SA8-JL-EOl"/>
+                            <outlet property="dataSource" destination="Ue5-Fc-AV7" id="e23-wJ-hll"/>
                             <outlet property="delegate" destination="7tH-Og-emC" id="RJA-EH-U4d"/>
                         </connections>
                     </collectionView>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Wf-qc-gnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Ue5-Fc-AV7" userLabel="Cards DS" customClass="CardsDataSource" customModule="Web_Cards" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="197" y="260"/>
+            <point key="canvasLocation" x="196" y="260"/>
         </scene>
     </scenes>
 </document>
