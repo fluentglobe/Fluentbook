@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7tH-Og-emC">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
     <scenes>
@@ -31,31 +30,31 @@
                                             <rect key="frame" x="10" y="8" width="452" height="98"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </webView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSa-EB-kIO">
-                                            <rect key="frame" x="26" y="90" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T16-bz-awJ">
                                             <rect key="frame" x="9" y="12" width="453" height="90"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="190" id="hgg-ni-Amc"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSa-EB-kIO">
+                                            <rect key="frame" x="26" y="81" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="1" green="0.2156862745" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="T16-bz-awJ" secondAttribute="bottom" constant="10" id="0bb-tu-Tfo"/>
-                                    <constraint firstItem="dSa-EB-kIO" firstAttribute="leading" secondItem="Wid-0c-la0" secondAttribute="leading" constant="26" id="e0I-4f-YJf"/>
+                                    <constraint firstItem="dSa-EB-kIO" firstAttribute="leading" secondItem="Wid-0c-la0" secondAttribute="leading" constant="18" id="e0I-4f-YJf"/>
                                     <constraint firstAttribute="trailing" secondItem="T16-bz-awJ" secondAttribute="trailing" id="j6E-JM-QOp"/>
                                     <constraint firstItem="T16-bz-awJ" firstAttribute="leading" secondItem="Wid-0c-la0" secondAttribute="leading" id="k4O-dt-PL7"/>
                                     <constraint firstAttribute="bottom" secondItem="yKu-QX-m6a" secondAttribute="bottom" constant="10" id="mXa-V0-HfY"/>
                                     <constraint firstItem="yKu-QX-m6a" firstAttribute="top" secondItem="Wid-0c-la0" secondAttribute="top" id="qcu-4K-gdp"/>
                                     <constraint firstAttribute="trailing" secondItem="yKu-QX-m6a" secondAttribute="trailing" id="toh-U9-EL8"/>
-                                    <constraint firstAttribute="bottom" secondItem="dSa-EB-kIO" secondAttribute="bottom" constant="2" id="vLw-R3-8gN"/>
+                                    <constraint firstAttribute="bottom" secondItem="dSa-EB-kIO" secondAttribute="bottom" constant="12" id="vLw-R3-8gN"/>
                                     <constraint firstItem="yKu-QX-m6a" firstAttribute="leading" secondItem="Wid-0c-la0" secondAttribute="leading" id="xtG-zM-eYl"/>
                                 </constraints>
                                 <connections>

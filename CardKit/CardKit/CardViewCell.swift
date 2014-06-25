@@ -11,7 +11,16 @@ import QuartzCore
 
 class CardViewCell: UICollectionViewCell {
     
-    var title = ""
+    var _title = ""
+    var title: String {
+        get { return _title }
+        set {
+            _title = newValue
+            if self.nameLabel {
+                self.nameLabel.text = newValue
+            }
+        }
+    }
     var color = UIColor.whiteColor()
     
     @IBOutlet var webView: UIWebView = nil
@@ -60,10 +69,22 @@ class CardViewCell: UICollectionViewCell {
         
         self.webView.layer.cornerRadius = 7.0
         self.webView.clipsToBounds = true
+        self.snapshotImageView.layer.cornerRadius = 7.0
+        self.snapshotImageView.clipsToBounds = true
         
         // for debugging
 //        self.webView.layer.borderWidth = 1.0
 //        self.webView.layer.borderColor = UIColor.blackColor().CGColor
+        
+        self.takeSnapshot()
+    }
+    
+    func takeSnapshot() {
+        UIGraphicsBeginImageContextWithOptions(self.snapshotImageView.frame.size, true, 0.0) //TODO adjust it perhaps ?
+        self.webView.layer.renderInContext(UIGraphicsGetCurrentContext())
+        var image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.snapshotImageView.image = image
     }
     
     override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes!) {
@@ -100,12 +121,12 @@ class CardViewCell: UICollectionViewCell {
     self.nameLabel.text = text
     }
     */
-    func setTitle(title: String) {
-        self.title = title
-        if self.nameLabel {
-            self.nameLabel.text = title
-        }
-    }
+//    func setTitle(title: String) {
+//        self.title = title
+//        if self.nameLabel {
+//            self.nameLabel.text = title
+//        }
+//    }
     
     func setColor(color: UIColor) {
         self.color = color

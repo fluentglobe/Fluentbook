@@ -93,7 +93,7 @@ class CardStackLayout: UICollectionViewLayout {
         attributes.size = CGSize(width: self.exposedSize.width, height: self.exposedSize.height)
         attributes.zIndex = path.item // last card top of pile
             
-        println("Laying out item \(path.item), (\(attributes.center.x),\(attributes.center.y))")
+//        println("Laying out item \(path.item), (\(attributes.center.x),\(attributes.center.y))")
             
         return attributes
     }
