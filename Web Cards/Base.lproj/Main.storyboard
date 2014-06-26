@@ -44,6 +44,8 @@
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
+                                            <color key="shadowColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <size key="shadowOffset" width="-1" height="0.0"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -54,7 +56,7 @@
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="T16-bz-awJ" secondAttribute="bottom" constant="11" id="4KO-Pi-hPn"/>
                                     <constraint firstAttribute="trailing" secondItem="loB-J6-95j" secondAttribute="trailing" constant="20" id="K44-bp-cZI"/>
                                     <constraint firstItem="dSa-EB-kIO" firstAttribute="leading" secondItem="Wid-0c-la0" secondAttribute="leading" constant="18" id="e0I-4f-YJf"/>
-                                    <constraint firstAttribute="bottom" secondItem="loB-J6-95j" secondAttribute="bottom" constant="10" id="e78-tV-rTg"/>
+                                    <constraint firstAttribute="bottom" secondItem="loB-J6-95j" secondAttribute="bottom" constant="12" id="e78-tV-rTg"/>
                                     <constraint firstItem="loB-J6-95j" firstAttribute="leading" secondItem="Wid-0c-la0" secondAttribute="leading" constant="20" id="fOO-Ne-bxm"/>
                                     <constraint firstAttribute="trailing" secondItem="dSa-EB-kIO" secondAttribute="trailing" constant="40" id="g7t-r9-cXd"/>
                                     <constraint firstAttribute="trailing" secondItem="T16-bz-awJ" secondAttribute="trailing" id="j6E-JM-QOp"/>
@@ -62,7 +64,7 @@
                                     <constraint firstAttribute="bottom" secondItem="yKu-QX-m6a" secondAttribute="bottom" constant="10" id="mXa-V0-HfY"/>
                                     <constraint firstItem="yKu-QX-m6a" firstAttribute="top" secondItem="Wid-0c-la0" secondAttribute="top" id="qcu-4K-gdp"/>
                                     <constraint firstAttribute="trailing" secondItem="yKu-QX-m6a" secondAttribute="trailing" id="toh-U9-EL8"/>
-                                    <constraint firstAttribute="bottom" secondItem="dSa-EB-kIO" secondAttribute="bottom" constant="12" id="vLw-R3-8gN"/>
+                                    <constraint firstAttribute="bottom" secondItem="dSa-EB-kIO" secondAttribute="bottom" constant="14" id="vLw-R3-8gN"/>
                                     <constraint firstItem="yKu-QX-m6a" firstAttribute="leading" secondItem="Wid-0c-la0" secondAttribute="leading" id="xtG-zM-eYl"/>
                                 </constraints>
                                 <connections>
