@@ -10,4 +10,11 @@ import UIKit
 
 class CardViewLayoutAttributes: UICollectionViewLayoutAttributes {
     var foreground = false
+    
+    override func copyWithZone(zone: NSZone) -> AnyObject! {
+        var copy = super.copyWithZone(zone) as CardViewLayoutAttributes
+        copy.foreground = self.foreground
+        
+        return copy
+    }
 }

@@ -121,6 +121,7 @@ class CardViewCell: UICollectionViewCell {
         // showing webview or the snapshot
         self.webView.hidden = !cardAttributes.foreground
         self.snapshotImageView.hidden = cardAttributes.foreground
+//        println("ix=\(cardAttributes.indexPath.item) WebView hidden=\(self.webView.hidden), snapshot hidden=\(self.snapshotImageView.hidden), foreground = \(cardAttributes.foreground)")
         //TODO other snapshot bits
     }
     

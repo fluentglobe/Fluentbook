@@ -53,7 +53,6 @@
                                 <color key="backgroundColor" red="1" green="0.2156862745" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="T16-bz-awJ" secondAttribute="bottom" constant="10" id="0bb-tu-Tfo"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="T16-bz-awJ" secondAttribute="bottom" constant="11" id="4KO-Pi-hPn"/>
                                     <constraint firstAttribute="trailing" secondItem="loB-J6-95j" secondAttribute="trailing" constant="20" id="K44-bp-cZI"/>
                                     <constraint firstItem="dSa-EB-kIO" firstAttribute="leading" secondItem="Wid-0c-la0" secondAttribute="leading" constant="18" id="e0I-4f-YJf"/>
                                     <constraint firstAttribute="bottom" secondItem="loB-J6-95j" secondAttribute="bottom" constant="12" id="e78-tV-rTg"/>

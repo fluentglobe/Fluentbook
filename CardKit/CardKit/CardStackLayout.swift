@@ -8,17 +8,19 @@
 
 import UIKit
 
+//let CARD_FOREGROUND_ZINDEX = 100
+
 class CardStackLayout: UICollectionViewLayout {
-   
-    var exposedItem:Int? = nil
+    var exposedItem:Int? = 0
     var cellCount:Int = 0
     var reveal:CGFloat = 0.0
+    var exposedReveal:CGFloat = 1.0             // The space for other cards when top is exposed
     var center = CGPoint(x: 160, y: 300)
     var exposedSize = CGSize(width: 320, height: 480)
     var exposedHeight = CGFloat(0)
     
-    var bottomStackGap = 20.0,
-        bottomStackHeight = 50.0
+    var bottomStackGap = 10.0,
+    bottomStackHeight:CGFloat = 70.0
     var layoutMargin = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
     var bounceFactor = 0.2
     var minReveal:CGFloat = 35.0
@@ -49,9 +51,11 @@ class CardStackLayout: UICollectionViewLayout {
         self.reveal = max(self.minReveal, perCell)
         self.reveal = self.minReveal // testing....
         
+        self.exposedReveal = self.bottomStackHeight / CGFloat(self.cellCount - 1)
+
+        //TODO review
         self.exposedHeight = self.exposedSize.height + self.reveal * CGFloat(self.cellCount - 1)
 
-        
         if let cardView = self.collectionView as? CardView {
             self.bounceFactor = cardView.bounceFactor
             //TODO tweak layoutMargin minReveal
@@ -60,18 +64,26 @@ class CardStackLayout: UICollectionViewLayout {
         // pre-calc attributes
         // placing from the bottom up having the topmost (last in stack) be visually on top
         if self.cellCount != self.attributes.count {
+            var startCenterY = self.layoutMargin.top + self.exposedSize.height / 2,
+                reveal = self.exposedReveal // gradually reduce as it gets closer to edge
+            
             var forAll = UICollectionViewLayoutAttributes[]()
             for index in 0 .. self.cellCount {
                 var path = NSIndexPath(forItem: index, inSection: 0)
                 
                 let attributes = CardViewLayoutAttributes(forCellWithIndexPath: path)
                 attributes.foreground = (self.exposedItem == path.item)
+//                println("exposed \(self.exposedItem) == \(path.item) .. \(path.section), foreground=\(attributes.foreground)")
                 
                 // card has full height whether overlapped or not
-                let centerY = self.exposedHeight - CGFloat(Float(path.item) + 0.5) * self.reveal
-                attributes.center = CGPointMake(self.center.x, centerY - self.exposedSize.height/2 + self.reveal/2)
+                let centerY = startCenterY + CGFloat(Float(path.item) + 0.0) * reveal
+                attributes.center = CGPointMake(self.center.x, centerY)
                 attributes.size = CGSize(width: self.exposedSize.width, height: self.exposedSize.height)
-//                attributes.zIndex = index // last card top of pile
+                if attributes.foreground {
+                    attributes.zIndex = 100 //CARD_FOREGROUND_ZINDEX
+                } else {
+                    attributes.zIndex = self.cellCount - index // last card top of pile
+                }
                 
                 forAll.append(attributes)
                 
@@ -98,6 +110,8 @@ class CardStackLayout: UICollectionViewLayout {
         let attrsInRect = NSMutableArray()
         for attributes in self.attributes {
             if CGRectIntersectsRect(rect, attributes.frame) {
+                var attr = attributes as CardViewLayoutAttributes
+                println("layout for \(attributes.description), \(attr.foreground)")
                 attrsInRect.addObject(attributes)
             }
         }
