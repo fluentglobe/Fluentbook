@@ -70,11 +70,11 @@ class CardURLCache: NSURLCache {
                 // Last modification date for file
                 var error:NSError? = nil
                 var attributes = NSFileManager.defaultManager().attributesOfItemAtPath(storagePath, error: &error)
-                var modDate = attributes[.ModificationDate] as NSDate // NSFileModificationDate
+                var modDate = attributes[NSFileModificationDate] as NSDate
                 
                 // Test if the file is older than max age
                 var threshold = maxAge!.bridgeToObjectiveC().doubleValue as NSTimeInterval
-                var modificationTimeSinceNow = -NSDate(timeIntervalSinceNow: modDate)
+                var modificationTimeSinceNow = -modDate.timeIntervalSinceNow
                 if modificationTimeSinceNow > threshold {
                     #if DEBUG
                     println("CACHE item older than %@ maxAgeHours", maxAge)
@@ -177,12 +177,13 @@ class CardURLCache: NSURLCache {
      }
     
     class func addSkipBackupAttributeToItemAtURL(url: NSURL) -> Bool {
-        let filePath = url.path.fileSystemRepresentation()
-        let attrName = "com.apple.MobileBackup"
+        let filePath = url.path.bridgeToObjectiveC().fileSystemRepresentation
+        let attrName = "com.apple.MobileBackup".bridgeToObjectiveC().UTF8String
 //        if NSURLIsExcludedFromBackupKey == nil iOS 5
         
         // first try and remove the extended attribute if it is present
-        var result = getxattr(filePath, attrName, nil, sizeof(Int8), 0, 0)
+        var attrSize:size_t = 1 /*sizeof(Int8)*/
+        var result = getxattr(filePath, attrName, nil, attrSize , 0, 0)
         if result != -1 {
             // The attribute exists, we need to remove it
             var removeResult = removexattr(filePath, attrName, 0)
@@ -193,7 +194,7 @@ class CardURLCache: NSURLCache {
             }
         }
 
-        return url.setResourceValue(value: NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey, error:nil)
+        return url.setResourceValue(NSNumber(bool: true), forKey: NSURLIsExcludedFromBackupKey, error:nil)
     }
     
     class func networkAvailable() -> Bool {
