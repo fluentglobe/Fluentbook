@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E2A39754D6B84F558E7CBF58"
+               BlueprintIdentifier = "74FFB4A5EEEF4ADC9E0DD018"
                BuildableName = "libPods-Web Cards-Reachability.a"
                BlueprintName = "Pods-Web Cards-Reachability"
                ReferencedContainer = "container:Pods.xcodeproj">
