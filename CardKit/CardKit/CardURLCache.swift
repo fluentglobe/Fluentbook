@@ -22,6 +22,12 @@ var cardPreloadedDirectory:String = "/preloaded/"
 
 class CardURLCache: NSURLCache {
     
+    #if DEBUG
+    func debugLog(str:AnyObject...) {
+        
+    }
+    #endif
+    
     class func activate() {
         // set caching paths
         var documentDirectory : AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
@@ -29,7 +35,11 @@ class CardURLCache: NSURLCache {
         mkdir(cardCacheDirectory.bridgeToObjectiveC().UTF8String, 0700)
         
         cardPreloadedDirectory = NSBundle.mainBundle().resourcePath.stringByAppendingPathComponent(PRE_CACHE_FOLDER)
-        
+
+        #if DEBUG
+        println("Docs = \(documentDirectory), \nCache = \(cardCacheDirectory), \nPreloaded = \(cardPreloadedDirectory)")
+        #endif
+
         // activate cache
         var urlCache = CardURLCache(memoryCapacity: 1<<MAX_FILE_SIZE, diskCapacity: 1<<MAX_FILE_SIZE, diskPath: cardCacheDirectory)
         NSURLCache.setSharedURLCache(urlCache)
