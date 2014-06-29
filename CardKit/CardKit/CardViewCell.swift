@@ -86,10 +86,6 @@ class CardViewCell: UICollectionViewCell, UIWebViewDelegate {
         self.snapshotImageView.layer.cornerRadius = 7.0
         self.snapshotImageView.clipsToBounds = true
         
-        // for debugging
-//        self.webView.layer.borderWidth = 1.0
-//        self.webView.layer.borderColor = UIColor.blackColor().CGColor
-        
         self.takeSnapshot()
     }
     
@@ -174,9 +170,8 @@ class CardViewCell: UICollectionViewCell, UIWebViewDelegate {
         return
         */
         if desc.url {
-            //TODO fetch the URL
-            var str = desc.html //TODO set to default ?
-            self.webView.loadHTMLString(str, baseURL: NSURL(string: desc.url))
+            var request = NSURLRequest(URL: desc.url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: self.httpTimeout)
+            self.webView.loadRequest(request)
         } else if desc.html {
             self.webView.loadHTMLString(desc.html, baseURL: nil)
         }
