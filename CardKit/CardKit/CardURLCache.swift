@@ -22,7 +22,7 @@ var cardPreloadedDirectory:String = "/preloaded/"
 
 class CardURLCache: NSURLCache {
     
-    #if DEBUG
+    #if DEBUG_LOG
     func debugLog(str:AnyObject...) {
         
     }
@@ -36,7 +36,7 @@ class CardURLCache: NSURLCache {
         
         cardPreloadedDirectory = NSBundle.mainBundle().resourcePath.stringByAppendingPathComponent(PRE_CACHE_FOLDER)
 
-        #if DEBUG
+        #if DEBUG_LOG
         println("Docs = \(documentDirectory), \nCache = \(cardCacheDirectory), \nPreloaded = \(cardPreloadedDirectory)")
         #endif
 
@@ -51,14 +51,14 @@ class CardURLCache: NSURLCache {
     }
     
     override func cachedResponseForRequest(request: NSURLRequest!) -> NSCachedURLResponse! {
-        #if DEBUG
+        #if DEBUG_LOG
         println("CACHE REQUEST %@", request)
         #endif
         
         // is caching allowed
         if (request.cachePolicy == NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData || request.cachePolicy == NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData || request.URL.absoluteString.hasPrefix("file://") || request.URL.absoluteString.hasPrefix("data:")) && CardURLCache.networkAvailable() {
             
-            #if DEBUG
+            #if DEBUG_LOG
             println("CACHE not allowed for %@", request.URL)
             #endif
             return nil
@@ -86,12 +86,12 @@ class CardURLCache: NSURLCache {
                 var threshold = maxAge!.bridgeToObjectiveC().doubleValue as NSTimeInterval
                 var modificationTimeSinceNow = -modDate.timeIntervalSinceNow
                 if modificationTimeSinceNow > threshold {
-                    #if DEBUG
+                    #if DEBUG_LOG
                     println("CACHE item older than %@ maxAgeHours", maxAge)
                     #endif
                     return nil
                 }
-                #if DEBUG
+                #if DEBUG_LOG
                 println("CACHE max age = %@, file date = %@", maxAge, modDate)
                 #endif
             }
@@ -116,12 +116,12 @@ class CardURLCache: NSURLCache {
             // If the file is in the Preloaded folder, then we do want to save a copy in case we are without internet connection
             var storagePath = CardURLCache.storagePathForRequest(request, path: cardPreloadedDirectory)
             if !NSFileManager.defaultManager().fileExistsAtPath(storagePath) {
-                #if DEBUG
+                #if DEBUG_LOG
                 println("CACHE not storing file, it's not allowed by the cachePolicy: %@", request.URL)
                 #endif
                 return
             }
-            #if DEBUG
+            #if DEBUG_LOG
                 println("CACHE file in Preloaded folder, overriding cachePolicy: %@", request.URL)
             #endif
         }
@@ -131,24 +131,25 @@ class CardURLCache: NSURLCache {
         var storageDirectory = storagePath.stringByDeletingLastPathComponent
         var error:NSError? = nil
         if NSFileManager.defaultManager().createDirectoryAtPath(storageDirectory, withIntermediateDirectories: true, attributes: nil, error: &error) {
-            #if DEBUG
+            #if DEBUG_LOG
                 println("Error creating cache directory: %@", error)
             #endif
         }
         
         // save file
-        #if DEBUG
+        #if DEBUG_LOG
             println("Writing data to %@", storagePath)
         #endif
         if !cachedResponse.data.writeToFile(storagePath, atomically: true) {
-            #if DEBUG
+            #if DEBUG_LOG
                 println("Could not write file to cache")
             #endif
         } else {
             // prevent iCloud  backup
             var cacheURL = NSURL(fileURLWithPath: storagePath)
+            cacheURL.setResourceValue(true, forKey: NSURLIsExcludedFromBackupKey, error: &error) //TODO check if this is the newer better version of the next stuff
             if !CardURLCache.addSkipBackupAttributeToItemAtURL(cacheURL) {
-                #if DEBUG
+                #if DEBUG_LOG
                     println("Could not set the do not backup attribute")
                 #endif
             }

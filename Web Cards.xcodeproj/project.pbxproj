@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E2A765C195F756800A956C6 /* CardPreloaded in Resources */ = {isa = PBXBuildFile; fileRef = 3E2A765B195F756800A956C6 /* CardPreloaded */; };
+		3E2A765E195F842900A956C6 /* libPods-Web Cards-Reachability.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2A765D195F842900A956C6 /* libPods-Web Cards-Reachability.a */; };
 		3E9C3E1019572C9000A7666C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9C3E0F19572C9000A7666C /* AppDelegate.swift */; };
 		3E9C3E1519572C9000A7666C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9C3E1319572C9000A7666C /* Main.storyboard */; };
 		3E9C3E1719572C9000A7666C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E9C3E1619572C9000A7666C /* Images.xcassets */; };
@@ -16,6 +18,7 @@
 		3EC0073D1959D89B004E05A2 /* CardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0073C1959D89B004E05A2 /* CardsDataSource.swift */; };
 		3EC0073F1959DC52004E05A2 /* CardStackLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0073E1959DC52004E05A2 /* CardStackLayout.swift */; };
 		3EC00741195A1CBC004E05A2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC00740195A1CBC004E05A2 /* CardView.swift */; };
+		3EC27FC7195ECEB400D5F748 /* CardURLCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC27FC6195ECEB400D5F748 /* CardURLCache.swift */; };
 		3EDA9EF6195B32F5000C65AF /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDA9EF5195B32F5000C65AF /* Reveal.framework */; };
 		3EDA9EF8195B402B000C65AF /* CardViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA9EF7195B402B000C65AF /* CardViewLayoutAttributes.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E2A765A195EFA1100A956C6 /* Web Cards-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Web Cards-Bridging-Header.h"; sourceTree = "<group>"; };
+		3E2A765B195F756800A956C6 /* CardPreloaded */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CardPreloaded; sourceTree = "<group>"; };
+		3E2A765D195F842900A956C6 /* libPods-Web Cards-Reachability.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Web Cards-Reachability.a"; path = "Pods/build/Debug-iphoneos/libPods-Web Cards-Reachability.a"; sourceTree = "<group>"; };
+		3E2A765F19604E6C00A956C6 /* Web Cards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Web Cards.entitlements"; sourceTree = "<group>"; };
 		3E9C3E0A19572C9000A7666C /* Web Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Web Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9C3E0E19572C9000A7666C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E9C3E0F19572C9000A7666C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +53,7 @@
 		3EC0073C1959D89B004E05A2 /* CardsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsDataSource.swift; sourceTree = "<group>"; };
 		3EC0073E1959DC52004E05A2 /* CardStackLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackLayout.swift; sourceTree = "<group>"; };
 		3EC00740195A1CBC004E05A2 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		3EC27FC6195ECEB400D5F748 /* CardURLCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardURLCache.swift; sourceTree = "<group>"; };
 		3EDA9EF5195B32F5000C65AF /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = "../../../../../Applications/Reveal.app/Contents/SharedSupport/iOS-Libraries/Reveal.framework"; sourceTree = "<group>"; };
 		3EDA9EF7195B402B000C65AF /* CardViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewLayoutAttributes.swift; sourceTree = "<group>"; };
 		42EF040C81B14A5AA72653EC /* libPods-Web Cards.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Web Cards.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E2A765E195F842900A956C6 /* libPods-Web Cards-Reachability.a in Frameworks */,
 				3EDA9EF6195B32F5000C65AF /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +83,7 @@
 		3E9C3E0119572C9000A7666C = {
 			isa = PBXGroup;
 			children = (
+				3E2A765B195F756800A956C6 /* CardPreloaded */,
 				3EDA9EF5195B32F5000C65AF /* Reveal.framework */,
 				3EC0073A1959D7E7004E05A2 /* Cards */,
 				3E9C3E0C19572C9000A7666C /* Web Cards */,
@@ -96,11 +106,13 @@
 		3E9C3E0C19572C9000A7666C /* Web Cards */ = {
 			isa = PBXGroup;
 			children = (
+				3E2A765F19604E6C00A956C6 /* Web Cards.entitlements */,
 				3E9C3E0F19572C9000A7666C /* AppDelegate.swift */,
 				3E9C3E2C19572CC300A7666C /* CardsViewController.swift */,
 				3E9C3E1319572C9000A7666C /* Main.storyboard */,
 				3E9C3E1619572C9000A7666C /* Images.xcassets */,
 				3E9C3E0D19572C9000A7666C /* Supporting Files */,
+				3E2A765A195EFA1100A956C6 /* Web Cards-Bridging-Header.h */,
 			);
 			path = "Web Cards";
 			sourceTree = "<group>";
@@ -138,6 +150,7 @@
 				3EC0073E1959DC52004E05A2 /* CardStackLayout.swift */,
 				3EC00740195A1CBC004E05A2 /* CardView.swift */,
 				3EDA9EF7195B402B000C65AF /* CardViewLayoutAttributes.swift */,
+				3EC27FC6195ECEB400D5F748 /* CardURLCache.swift */,
 			);
 			name = Cards;
 			path = CardKit/CardKit;
@@ -146,6 +159,7 @@
 		EDBA8D0AF7044D109D9C1DC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E2A765D195F842900A956C6 /* libPods-Web Cards-Reachability.a */,
 				3EC006A31958C45C004E05A2 /* UIKit.framework */,
 				3EC006A11958C44F004E05A2 /* CardKit.framework */,
 				42EF040C81B14A5AA72653EC /* libPods-Web Cards.a */,
@@ -204,6 +218,12 @@
 				TargetAttributes = {
 					3E9C3E0919572C9000A7666C = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = KY4984DBGZ;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 					3E9C3E1B19572C9000A7666C = {
 						CreatedOnToolsVersion = 6.0;
@@ -237,6 +257,7 @@
 			files = (
 				3E9C3E1519572C9000A7666C /* Main.storyboard in Resources */,
 				3E9C3E1719572C9000A7666C /* Images.xcassets in Resources */,
+				3E2A765C195F756800A956C6 /* CardPreloaded in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +314,7 @@
 				3EC0073D1959D89B004E05A2 /* CardsDataSource.swift in Sources */,
 				3EC00741195A1CBC004E05A2 /* CardView.swift in Sources */,
 				3EDA9EF8195B402B000C65AF /* CardViewLayoutAttributes.swift in Sources */,
+				3EC27FC7195ECEB400D5F748 /* CardURLCache.swift in Sources */,
 				3E9C3E2E19572CC300A7666C /* CardsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +434,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Web Cards/Web Cards.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_LOG = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/henrikvendelbo/workspace/CardKit/CardKit/build/Debug-iphoneos",
@@ -420,7 +446,13 @@
 				INFOPLIST_FILE = "Web Cards/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Web Cards/Web Cards-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -430,6 +462,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Web Cards/Web Cards.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_LOG = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/henrikvendelbo/workspace/CardKit/CardKit/build/Debug-iphoneos",
@@ -438,7 +474,13 @@
 				INFOPLIST_FILE = "Web Cards/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Web Cards/Web Cards-Bridging-Header.h";
 			};
 			name = Release;
 		};
