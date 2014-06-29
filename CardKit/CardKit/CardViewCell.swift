@@ -165,4 +165,20 @@ class CardViewCell: UICollectionViewCell, UIWebViewDelegate {
     
     }
     */
+    
+    func setHTML(desc: CardDescription) {
+        /*
+        var url:NSURL? = NSURL(string:"http://google.com")
+        var request = NSURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval: self.httpTimeout)
+        self.webView.loadRequest(request)
+        return
+        */
+        if desc.url {
+            //TODO fetch the URL
+            var str = desc.html //TODO set to default ?
+            self.webView.loadHTMLString(str, baseURL: NSURL(string: desc.url))
+        } else if desc.html {
+            self.webView.loadHTMLString(desc.html, baseURL: nil)
+        }
+    }
 }
