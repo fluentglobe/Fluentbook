@@ -28,7 +28,7 @@ class CardDescription {
     var progress:Float = 0.5
     var color = randomUIColor()
     var html:String? = HTML_BEGIN + HTML_ONE_PLACE + HTML_SCAN_BARCODE + HTML_END
-    var url:String? = nil
+    var url:NSURL? = nil
     
     init() {
     }
@@ -41,7 +41,7 @@ class CardDescription {
     init(_ _name:String, _ _progress:Float, url:String) {
         self.title = _name
         self.progress = _progress
-        self.url = url
+        self.url = NSURL(string:url)
         self.html = nil
     }
 }
