@@ -9,7 +9,9 @@
 import UIKit
 import QuartzCore
 
-class CardViewCell: UICollectionViewCell {
+class CardViewCell: UICollectionViewCell, UIWebViewDelegate {
+    
+    let httpTimeout:NSTimeInterval = 30
     
     var _title = ""
     var title: String {
@@ -98,6 +100,18 @@ class CardViewCell: UICollectionViewCell {
         UIGraphicsEndImageContext()
         self.snapshotImageView.image = image
     }
+    
+    func webViewDidStartLoad(webView: UIWebView) {
+    
+    }
+    
+    func webViewDidFinishLoad(webView: UIWebView) {
+        
+    }
+    
+//    func webView() {
+//        
+//    }
     
     override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes!) {
         
