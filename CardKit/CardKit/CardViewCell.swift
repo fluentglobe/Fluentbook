@@ -11,6 +11,7 @@ import QuartzCore
 
 class CardViewCell: UICollectionViewCell, UIWebViewDelegate {
     
+    let cardCornerRadius = 12.0
     let httpTimeout:NSTimeInterval = 30
     
     var _title = ""
@@ -56,12 +57,12 @@ class CardViewCell: UICollectionViewCell, UIWebViewDelegate {
         //TODO rect full size constraints
         
         self.backgroundView.backgroundColor = UIColor.clearColor() //self.color
-        self.backgroundView.layer.cornerRadius = 7.0
+        self.backgroundView.layer.cornerRadius = CGFloat(self.cardCornerRadius)
 //                self.backgroundView.layer.borderWidth = 1.0
 //                self.backgroundView.layer.borderColor = UIColor.blackColor().CGColor
         
         self.selectedBackgroundView.backgroundColor = UIColor.clearColor() //self.color
-        self.selectedBackgroundView.layer.cornerRadius = 7.0
+        self.selectedBackgroundView.layer.cornerRadius = CGFloat(self.cardCornerRadius)
         //        self.selectedBackgroundView.layer.borderWidth = 1.0
         //        self.selectedBackgroundView.layer.borderColor = UIColor.blackColor().CGColor
         
@@ -81,9 +82,9 @@ class CardViewCell: UICollectionViewCell, UIWebViewDelegate {
         
         self.nameLabel.text = self.title
         
-        self.webView.layer.cornerRadius = 7.0
+        self.webView.layer.cornerRadius = CGFloat(self.cardCornerRadius)
         self.webView.clipsToBounds = true
-        self.snapshotImageView.layer.cornerRadius = 7.0
+        self.snapshotImageView.layer.cornerRadius = CGFloat(self.cardCornerRadius)
         self.snapshotImageView.clipsToBounds = true
         
         self.takeSnapshot()
@@ -125,8 +126,11 @@ class CardViewCell: UICollectionViewCell, UIWebViewDelegate {
 //        self.selectedBackgroundView.bounds = bgBounds
         
         //TODO skip if height/width unchanged
-        self.backgroundView.layer.shadowPath = UIBezierPath(rect: self.backgroundView.bounds).CGPath
-        self.selectedBackgroundView.layer.shadowPath = UIBezierPath(rect: self.selectedBackgroundView.bounds).CGPath
+        var backgroundBounds = self.backgroundView.bounds
+        backgroundBounds.size.height -= CGFloat(self.cardCornerRadius)
+        backgroundBounds.origin.y += CGFloat(self.cardCornerRadius)
+        self.backgroundView.layer.shadowPath = UIBezierPath(rect: backgroundBounds).CGPath
+        self.selectedBackgroundView.layer.shadowPath = UIBezierPath(rect: backgroundBounds).CGPath
         
         // showing webview or the snapshot
         self.webView.hidden = !cardAttributes.foreground
