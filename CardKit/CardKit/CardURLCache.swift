@@ -14,14 +14,15 @@ let URLCACHE_EXPIRATION_AGE_KEY = "MobileAppExpirationAgeKey"
 let MAX_AGE = "604800000"
 let PRE_CACHE_FOLDER = "/CardPreloaded/"
 let CACHE_FOLDER = "/CardCache/"
-let MAX_FILE_SIZE = 26 // The maximum file size that will be cached 2^24 = 16M
+let MAX_FILE_SIZE = 24 // The maximum file size that will be cached 2^24 = 16M
+let FILE_NUMBERS_MAX = 10
 
-//TODO make class vars
-var cardCacheDirectory:String = "/cache/"
-var cardPreloadedDirectory:String = "/preloaded/"
 
 class CardURLCache: NSURLCache {
     
+    var cacheDirectory:String = "/cache/"
+    var preloadedDirectory:String = "/preloaded/"
+
     #if DEBUG_LOG
     func debugLog(str:AnyObject...) {
         
@@ -30,18 +31,22 @@ class CardURLCache: NSURLCache {
     
     class func activate() {
         // set caching paths
-        var documentDirectory : AnyObject = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        cardCacheDirectory = documentDirectory.stringByAppendingString(CACHE_FOLDER)
-        mkdir(cardCacheDirectory.bridgeToObjectiveC().UTF8String, 0700)
+        let cachePathArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true) as String[]
+        let cachePath = cachePathArray[0]
         
-        cardPreloadedDirectory = NSBundle.mainBundle().resourcePath.stringByAppendingPathComponent(PRE_CACHE_FOLDER)
+        //TODO add bundleid before folder name
+        let cacheDirectory = cachePath.stringByAppendingPathComponent(CACHE_FOLDER)
+        
+        let preloadedDirectory = NSBundle.mainBundle().resourcePath.stringByAppendingPathComponent(PRE_CACHE_FOLDER)
 
-        #if DEBUG_LOG
-        println("Docs = \(documentDirectory), \nCache = \(cardCacheDirectory), \nPreloaded = \(cardPreloadedDirectory)")
-        #endif
+//        #if DEBUG_LOG
+        println("Cache = \(cacheDirectory), \nPreloaded = \(preloadedDirectory)")
+//        #endif
 
         // activate cache
-        var urlCache = CardURLCache(memoryCapacity: 1<<MAX_FILE_SIZE, diskCapacity: 1<<MAX_FILE_SIZE, diskPath: cardCacheDirectory)
+        var urlCache = CardURLCache(memoryCapacity: 1<<MAX_FILE_SIZE, diskCapacity: FILE_NUMBERS_MAX * 1<<MAX_FILE_SIZE, diskPath: CACHE_FOLDER)
+        urlCache.preloadedDirectory = preloadedDirectory
+        urlCache.cacheDirectory = cacheDirectory
         NSURLCache.setSharedURLCache(urlCache)
     }
     
@@ -65,7 +70,7 @@ class CardURLCache: NSURLCache {
         }
         
         // is the file in the cache? If not, is the file in the Preloaded
-        var storagePath = CardURLCache.storagePathForRequest(request)
+        var storagePath = self.storagePathForRequest(request)
         //?? original source repeated test
         
         if NSFileManager.defaultManager().fileExistsAtPath(storagePath) {
@@ -114,7 +119,7 @@ class CardURLCache: NSURLCache {
         if request.cachePolicy == NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData || request.cachePolicy == NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData {
             
             // If the file is in the Preloaded folder, then we do want to save a copy in case we are without internet connection
-            var storagePath = CardURLCache.storagePathForRequest(request, path: cardPreloadedDirectory)
+            var storagePath = self.storagePathForRequest(request, path: self.preloadedDirectory)
             if !NSFileManager.defaultManager().fileExistsAtPath(storagePath) {
                 #if DEBUG_LOG
                 println("CACHE not storing file, it's not allowed by the cachePolicy: %@", request.URL)
@@ -127,7 +132,7 @@ class CardURLCache: NSURLCache {
         }
         
         // create storage folder
-        var storagePath = CardURLCache.storagePathForRequest(request, path: cardCacheDirectory)
+        var storagePath = self.storagePathForRequest(request, path: cacheDirectory)
         var storageDirectory = storagePath.stringByDeletingLastPathComponent
         var error:NSError? = nil
         if NSFileManager.defaultManager().createDirectoryAtPath(storageDirectory, withIntermediateDirectories: true, attributes: nil, error: &error) {
@@ -159,10 +164,10 @@ class CardURLCache: NSURLCache {
     
     // #pragma mark - helper methods
     
-    class func storagePathForRequest(request: NSURLRequest) -> String? {
-        var storagePath:String? = CardURLCache.storagePathForRequest(request, path: cardCacheDirectory)
+    func storagePathForRequest(request: NSURLRequest) -> String? {
+        var storagePath:String? = self.storagePathForRequest(request, path: self.cacheDirectory)
         if !NSFileManager.defaultManager().fileExistsAtPath(storagePath) {
-            storagePath = CardURLCache.storagePathForRequest(request, path: cardPreloadedDirectory)
+            storagePath = self.storagePathForRequest(request, path: self.preloadedDirectory)
             if !NSFileManager.defaultManager().fileExistsAtPath(storagePath) {
                 storagePath = nil
             }
@@ -170,7 +175,7 @@ class CardURLCache: NSURLCache {
         return storagePath
     }
 
-    class func storagePathForRequest(request: NSURLRequest, path: String) -> String {
+    func storagePathForRequest(request: NSURLRequest, path: String) -> String {
         var cacheKey: String? = request.valueForHTTPHeaderField(URLCACHE_CACHE_KEY);
         var localUrl:String? = nil
         if cacheKey == nil {
