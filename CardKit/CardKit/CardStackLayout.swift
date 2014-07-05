@@ -24,7 +24,7 @@ class CardStackLayout: UICollectionViewLayout {
     
     var bottomStackGap = 10.0,
     bottomStackHeight:CGFloat = 70.0
-    var layoutMargin = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
+    var layoutMargin = UIEdgeInsetsMake(50.0, 0.0, 0.0, 0.0)
     var bounceFactor = 0.2
     var idealReveal: CGFloat = 30.0
     var minReveal:CGFloat = 15.0
