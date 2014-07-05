@@ -39,9 +39,9 @@ class CardURLCache: NSURLCache {
         
         let preloadedDirectory = NSBundle.mainBundle().resourcePath.stringByAppendingPathComponent(PRE_CACHE_FOLDER)
 
-//        #if DEBUG_LOG
+        #if DEBUG_LOG
         println("Cache = \(cacheDirectory), \nPreloaded = \(preloadedDirectory)")
-//        #endif
+        #endif
 
         // activate cache
         var urlCache = CardURLCache(memoryCapacity: 1<<MAX_FILE_SIZE, diskCapacity: FILE_NUMBERS_MAX * 1<<MAX_FILE_SIZE, diskPath: CACHE_FOLDER)
