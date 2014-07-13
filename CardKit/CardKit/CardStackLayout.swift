@@ -31,7 +31,7 @@ class CardStackLayout: UICollectionViewLayout {
     
     //TODO support multi sections: multiple stacks
     
-    var attributes = UICollectionViewLayoutAttributes[]()
+    var attributes = [UICollectionViewLayoutAttributes]()
     
     override func prepareLayout() {
         super.prepareLayout()
@@ -77,9 +77,9 @@ class CardStackLayout: UICollectionViewLayout {
             centerY = CGFloat(startCenterY),
             reveal = self.exposedReveal // gradually reduce as it gets closer to edge
         
-        var forAll = UICollectionViewLayoutAttributes[]()
+        var forAll = [UICollectionViewLayoutAttributes]()
         
-        for index in 0 .. self.cellCount {
+        for index in 0 ..< self.cellCount {
             var path = NSIndexPath(forItem: index, inSection: 0)
             
             let attributes = CardViewLayoutAttributes(forCellWithIndexPath: path)
@@ -100,7 +100,7 @@ class CardStackLayout: UICollectionViewLayout {
                     centerY += self.minReveal + (self.idealReveal - self.minReveal)/2
                 case 3...7:
                     centerY += reveal
-                    attributes.alpha = 1.2 - Float(index)/7.5
+                    attributes.alpha = 1.2 - CGFloat(index)/7.5
                 case 8...999_999:
                     centerY += reveal
                     attributes.alpha = 0.0
@@ -120,7 +120,7 @@ class CardStackLayout: UICollectionViewLayout {
     
     override func invalidateLayout() {
         super.invalidateLayout()
-        self.attributes = UICollectionViewLayoutAttributes[]()
+        self.attributes = [UICollectionViewLayoutAttributes]()
     }
     
     override func collectionViewContentSize() -> CGSize {
@@ -136,7 +136,7 @@ class CardStackLayout: UICollectionViewLayout {
         
     }
         
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> AnyObject[] {
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject] {
         
         let attrsInRect = NSMutableArray()
         for attributes in self.attributes {

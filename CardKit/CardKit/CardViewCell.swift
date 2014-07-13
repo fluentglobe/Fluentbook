@@ -69,8 +69,8 @@ class CardViewCell: UICollectionViewCell, UIWebViewDelegate {
         self.backgroundView.clipsToBounds = false
         self.backgroundView.layer.shadowColor = UIColor.grayColor().CGColor
         self.backgroundView.layer.shadowOpacity = Float(0.7)
-        self.backgroundView.layer.shadowRadius = Float(4.0)
-        self.backgroundView.layer.shadowOffset = CGSizeMake(Float(0.0), Float(-10.0))
+        self.backgroundView.layer.shadowRadius = CGFloat(4.0)
+        self.backgroundView.layer.shadowOffset = CGSizeMake(CGFloat(0.0), CGFloat(-10.0))
         self.backgroundView.layer.shadowPath = UIBezierPath(rect: self.backgroundView.bounds).CGPath
     }
     

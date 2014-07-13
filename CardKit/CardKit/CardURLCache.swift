@@ -31,7 +31,7 @@ class CardURLCache: NSURLCache {
     
     class func activate() {
         // set caching paths
-        let cachePathArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true) as String[]
+        let cachePathArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true) as [String]
         let cachePath = cachePathArray[0]
         
         //TODO add bundleid before folder name
