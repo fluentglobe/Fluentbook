@@ -30,7 +30,20 @@ class CardsViewController: UICollectionViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        //TODO low memory notifies active webviews to cut down activity
     }
+    
+    // for now, consider matching with background image
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    //TODO use a separate URL connection (AFNetworking ?)
+    // connection:didRecieveAuthenticationChallenge
+    // store credentials with NSURLCredentialPersistenceForSession
+    // this applies to the UIWebView's
+    
+    // consider if credentials are unavailable during background fetch
     
 }
 
