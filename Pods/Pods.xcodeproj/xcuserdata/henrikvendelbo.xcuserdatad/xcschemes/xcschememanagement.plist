@@ -4,29 +4,45 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Web Cards-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Web Cards-Orbiter.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Web Cards-Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-Web Cards.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0D9B95022D024D07A0994967</key>
+		<key>0BFA0962350B4B678B82A243</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2A39754D6B84F558E7CBF58</key>
+		<key>E2A16235BEA04BEA8DBDF545</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0DE7B0C03A5437E83787E00</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD3CD6AFD2B1469C98F16CF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

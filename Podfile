@@ -4,6 +4,8 @@ platform :ios, "7.0"
 target "Web Cards" do
 
 pod 'Reachability', '~> 3.1'
+pod 'AFNetworking', '~> 2.0'
+pod 'Orbiter', '~> 2.0'
 
 end
 

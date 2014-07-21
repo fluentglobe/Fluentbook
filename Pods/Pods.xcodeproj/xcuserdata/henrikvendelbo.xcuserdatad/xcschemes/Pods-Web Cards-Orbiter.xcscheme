@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5D7DE988F240429295F6816F"
+               BlueprintIdentifier = "FD3CD6AFD2B1469C98F16CF9"
                BuildableName = "libPods-Web Cards-Orbiter.a"
                BlueprintName = "Pods-Web Cards-Orbiter"
                ReferencedContainer = "container:Pods.xcodeproj">
